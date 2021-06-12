@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Můj blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<div th:each="trida:${vsechnytridy}">
+<a th:text="${trida.nazev}" th:href="@{/{nazev}(nazev=${trida.nazev})}"> seznam zaku</a>
+
+</div>
+</body>
+</html>

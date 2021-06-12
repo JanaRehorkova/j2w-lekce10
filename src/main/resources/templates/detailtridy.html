@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Můj blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<h2 th:text="${detailTrida.nazev}">Nazev</h2>
+<div><span>Třídní učitel: </span><span th:text="${detailTrida.tridniUcitel.jmeno}"></span><span> </span><span th:text="${detailTrida.tridniUcitel.prijmeni}"> Tridni ucitel</span></div>
+<div th:each="student:${listStudentu}">
+    <a th:text="${student.jmeno}" th:href="@{/nazevTridy/{student}(student=${student.id})}"></a> <span></span><a th:text="${student.prijmeni}" th:href="@{/nazevTridy/{student}(student=${student.id})}"></a>
+</div>
+<div>
+    <button><a href="/"> Zpět na hlavní přehled</a>
+    </button>
+</div>
+</h2>
+</body>
+</html>
