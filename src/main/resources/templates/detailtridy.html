@@ -2,19 +2,33 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Můj blog</title>
+    <title>Web školy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="static/images/favicon.png">
-    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
-<h2 th:text="${detailTrida.nazev}">Nazev</h2>
-<div><span>Třídní učitel: </span><span th:text="${detailTrida.tridniUcitel.jmeno}"></span><span> </span><span th:text="${detailTrida.tridniUcitel.prijmeni}"> Tridni ucitel</span></div>
+<h1 th:text="${detailTrida.nazev}">Nazev</h1>
+<h2><span>Třídní učitel: </span><span th:text="${detailTrida.tridniUcitel.jmeno}"></span><span> </span><span
+        th:text="${detailTrida.tridniUcitel.prijmeni}"> Tridni ucitel</span></h2>
+<h3>Žáci ve třídě</h3>
 <div th:each="student:${listStudentu}">
-    <a th:text="${student.jmeno}" th:href="@{/nazevTridy/{student}(student=${student.id})}"></a> <span></span><a th:text="${student.prijmeni}" th:href="@{/nazevTridy/{student}(student=${student.id})}"></a>
+    <table>
+        <tbody>
+        <tr>
+            <td><a th:text="${student.prijmeni}"
+                   th:href="@{/{nazevTridy}/{student}(nazevTridy=${student.trida}, student=${student.id})}"></a></td>
+            <td><a th:text="${student.jmeno}"
+                   th:href="@{/{nazevTridy}/{student}(nazevTridy=${student.trida}, student=${student.id})}"></a></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <div>
-    <button><a href="/"> Zpět na hlavní přehled</a>
+    <button><a href="/"> Zpět na seznam tříd</a>
     </button>
 </div>
 </h2>

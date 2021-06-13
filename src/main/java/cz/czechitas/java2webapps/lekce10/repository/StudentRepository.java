@@ -9,12 +9,13 @@ import org.yaml.snakeyaml.events.Event;
 import java.util.List;
 
 /**
+ *
  */
 @Repository
-public interface StudentRepository  extends JpaRepository<Student, Integer> {
+public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> findByOrderByPrijmeniAsc();
 
-    List<Student> findByTridaOrderByPrijmeni(Trida trida);
+    List<Student> findByTridaOrderByPrijmeniAscJmenoAsc(Trida trida);
 
     Student findByIdIs(Integer id);
 

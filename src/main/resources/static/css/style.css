@@ -1,0 +1,23 @@
+body {
+    text-align: unset;
+    max-width: 500px;
+    font-family: "Droid Sans";
+    align-items: center;
+    justify-content: center;
+    position: center;
+    color: darkgreen;
+}
+
+
+.post {
+    margin: auto;
+    border-width: 3px;
+    border-color: darkslategrey;
+    border-bottom-style: solid;
+    max-width: 500px;
+    background-color: blanchedalmond;
+    position: center;
+    align-items: center;
+    justify-content: center;
+
+}
