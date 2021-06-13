@@ -2,13 +2,9 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Web školy</title>
+    <title>Můj blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet"
-          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png" th:href="@{/images/favicon.png}">
 </head>
 <body>
 <h1><span th:text="${konkretniStudent.jmeno}"></span><span> </span><span th:text="${konkretniStudent.prijmeni}"></span>
@@ -17,10 +13,11 @@
                             th:href="@{/{nazev}(nazev=${konkretniStudent.trida.nazev})}"></a></div>
 <h2>Rodiče</h2>
 <div th:each="rodic:${prehledrodicu}">
-    <div><span>Příjmení: </span><span th:text="${rodic.prijmeni}">Prijmeni</span></div>
-    <div><span>Jméno: </span><span th:text="${rodic.jmeno}">Jmeno</span></div>
+    <div><span>Příjmení a jméno: </span><span th:text="${rodic.prijmeni}+', '+${rodic.jmeno}">Prijmeni</span></div>
+    <!--    <div><span>Jméno: </span><span th:text="${rodic.jmeno}">Jmeno</span></div>-->
     <div><span>E-mail: </span><span th:text="${rodic.email}">Email</span></div>
     <div><span>Telefon: </span><span th:text="${rodic.telefon}">Tel</span></div>
+    <div></div>
 </div>
 <div>
     <button><a href="/"> Zpět na seznam tříd</a>
